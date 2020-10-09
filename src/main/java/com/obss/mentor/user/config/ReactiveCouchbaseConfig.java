@@ -2,7 +2,6 @@ package com.obss.mentor.user.config;
 
 import java.time.Duration;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.couchbase.CouchbaseProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.couchbase.config.AbstractCouchbaseConfiguration;
@@ -29,7 +28,6 @@ public class ReactiveCouchbaseConfig extends AbstractCouchbaseConfiguration {
   private String userPassword;
   @Value("${spring.couchbase.bucket.name}")
   private String bucketName;
-  CouchbaseProperties p;
 
   @Override
   public String getConnectionString() {
