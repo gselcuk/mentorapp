@@ -24,7 +24,7 @@ public class UserRelationService {
    * @param userRelation
    * @return
    */
-  public Mono<UserRelation> createRelation(UserRelation userRelation) {
+  public Mono<UserRelation> saveRelation(UserRelation userRelation) {
 
     if (StringUtils.isEmpty(userRelation.getUserRelationId()))
       userRelation.setRelationPhase(RelationPhase.STARTED);

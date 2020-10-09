@@ -1,6 +1,8 @@
 package com.obss.mentor.user.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.obss.mentor.user.model.UserRelation;
@@ -24,8 +26,9 @@ public class UserRelationController {
    * @param userRelation
    * @return
    */
-  public Mono<UserRelation> createRelation(UserRelation userRelation) {
-    return userRelationService.createRelation(userRelation);
+  @PostMapping(value = "/save")
+  public Mono<UserRelation> saveRelation(@RequestBody UserRelation userRelation) {
+    return userRelationService.saveRelation(userRelation);
   }
 
 }
