@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db:        
+        image: apache/couchdb:3.0
+        restart: always   
+        volumes: 
+            - ./etc:/opt/couchdb/etc/local.d  
+            - ./data:/opt/couchdb/data
+            - ./log:/opt/couchdb/var/log
+        ports:
+          - "5984:5984"
+        environment:
+          - 'COUCHDB_USER=admin'
+          - 'COUCHDB_PASSWORD=password'
+          
+  app:
+        build: ./
+        expose:
+          - "8080"
+        ports:
+         - 8080:8080
