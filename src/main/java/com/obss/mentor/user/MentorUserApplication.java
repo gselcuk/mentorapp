@@ -13,7 +13,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-public class MentorApplication extends SpringBootServletInitializer {
+public class MentorUserApplication extends SpringBootServletInitializer {
 
   /***
    * Main method of class.
@@ -21,7 +21,7 @@ public class MentorApplication extends SpringBootServletInitializer {
    * @param args
    */
   public static void main(String[] args) {
-    SpringApplication.run(MentorApplication.class, args);
+    SpringApplication.run(MentorUserApplication.class, args);
   }
 
 }
