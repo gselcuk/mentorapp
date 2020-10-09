@@ -3,7 +3,7 @@ package com.obss.mentor.user;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * Spring boot application.
@@ -12,11 +12,11 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
  *
  */
 @SpringBootApplication
-@EnableEurekaServer
+@EnableDiscoveryClient
 public class MentorApplication extends SpringBootServletInitializer {
 
   /***
-   * Main methodof class.
+   * Main method of class.
    * 
    * @param args
    */
