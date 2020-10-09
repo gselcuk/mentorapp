@@ -21,7 +21,7 @@ import reactor.core.publisher.Mono;
  *
  */
 @RestController
-@RequestMapping(value="user")
+@RequestMapping(value = "user")
 public class UserController {
 
   @Autowired
@@ -68,4 +68,5 @@ public class UserController {
   public Flux<AppUser> getAllUsers() {
     return userService.getAllUsers();
   }
+
 }

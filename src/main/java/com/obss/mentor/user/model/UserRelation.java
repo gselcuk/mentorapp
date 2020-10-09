@@ -1,13 +1,13 @@
 package com.obss.mentor.user.model;
 
 import static org.springframework.data.couchbase.core.mapping.id.GenerationStrategy.UNIQUE;
+import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.couchbase.core.mapping.Document;
 import org.springframework.data.couchbase.core.mapping.id.GeneratedValue;
-import com.obss.mentor.user.constants.UserRole;
+import com.obss.mentor.user.constants.RelationPhase;
 import lombok.Builder;
 import lombok.Data;
-
 
 /**
  * 
@@ -15,15 +15,14 @@ import lombok.Data;
  *
  */
 @Document
-@Data
 @Builder
-public class AppUser {
+@Data
+public class UserRelation {
 
   @Id
   @GeneratedValue(strategy = UNIQUE)
-  private String id;
-  private String userName;
-  private boolean isAdmin;
-  private UserRole userRole;
+  private String userRelationId;
+  private List<AppUser> users;
+  private RelationPhase relationPhase;
 
 }

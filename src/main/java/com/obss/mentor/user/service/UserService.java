@@ -3,6 +3,7 @@ package com.obss.mentor.user.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
+import com.obss.mentor.user.constants.UserRole;
 import com.obss.mentor.user.model.AppUser;
 import com.obss.mentor.user.repository.UserRepository;
 import reactor.core.publisher.Flux;
@@ -27,7 +28,8 @@ public class UserService {
    */
   public Mono<AppUser> authenticate() {
     Mono<AppUser> user = userRepository.findUserByUserName(getUserName());
-    return user.switchIfEmpty(userRepository.save( AppUser.builder().userName(getUserName()).build()));
+    return user.switchIfEmpty(userRepository.save(
+        AppUser.builder().userName(getUserName()).isAdmin(false).userRole(UserRole.USER).build()));
   }
 
   /**
