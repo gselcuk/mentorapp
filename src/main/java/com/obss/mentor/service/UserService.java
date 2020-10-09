@@ -1,6 +1,7 @@
 package com.obss.mentor.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import com.obss.mentor.model.AppUser;
 import com.obss.mentor.repository.UserRepository;
@@ -19,6 +20,15 @@ public class UserService {
   @Autowired
   private UserRepository userRepository;
 
+  /**
+   * Authenticate user.If user exist return its id;otherwise insert user to database.
+   * 
+   * @return
+   */
+  public Mono<AppUser> authenticate() {
+    Mono<AppUser> user = userRepository.findUserByUserName(getUserName());
+    return user.switchIfEmpty(userRepository.save( AppUser.builder().userName(getUserName()).build()));
+  }
 
   /**
    * Save given user to database and return it.
@@ -47,6 +57,15 @@ public class UserService {
    */
   public Flux<AppUser> getAllUsers() {
     return userRepository.findAll();
+  }
+
+  /**
+   * Get user name from security context.
+   * 
+   * @return
+   */
+  public String getUserName() {
+    return SecurityContextHolder.getContext().getAuthentication().getName();
   }
 
 }

@@ -4,6 +4,7 @@ import static org.springframework.data.couchbase.core.mapping.id.GenerationStrat
 import org.springframework.data.annotation.Id;
 import org.springframework.data.couchbase.core.mapping.Document;
 import org.springframework.data.couchbase.core.mapping.id.GeneratedValue;
+import lombok.Builder;
 import lombok.Data;
 
 
@@ -14,11 +15,12 @@ import lombok.Data;
  */
 @Document
 @Data
+@Builder
 public class AppUser {
 
   @Id
   @GeneratedValue(strategy = UNIQUE)
   private String id;
-  private String name;
+  private String userName;
 
 }
