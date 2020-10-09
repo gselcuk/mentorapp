@@ -1,4 +1,4 @@
-package com.obss.mentor.model;
+package com.obss.mentor.user.model;
 
 import static org.springframework.data.couchbase.core.mapping.id.GenerationStrategy.UNIQUE;
 import org.springframework.data.annotation.Id;

@@ -1,4 +1,4 @@
-package com.obss.mentor.config;
+package com.obss.mentor.user.config;
 
 import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;

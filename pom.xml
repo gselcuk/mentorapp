@@ -12,8 +12,8 @@
 	<groupId>com.obss</groupId>
 	<artifactId>mentor</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>mentor</name>
-	<description>Mentor app</description>
+	<name>mentor-user</name>
+	<description>Mentor app-User</description>
 
 	<properties>
 		<java.version>11</java.version>
@@ -73,6 +73,12 @@
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>
+				spring-cloud-starter-netflix-eureka-server
+			</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -84,4 +90,15 @@
 		</plugins>
 	</build>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Hoxton.SR8</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>

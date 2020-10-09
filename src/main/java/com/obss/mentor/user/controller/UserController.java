@@ -1,4 +1,4 @@
-package com.obss.mentor.controller;
+package com.obss.mentor.user.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import com.obss.mentor.model.AppUser;
-import com.obss.mentor.service.UserService;
+import com.obss.mentor.user.model.AppUser;
+import com.obss.mentor.user.service.UserService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

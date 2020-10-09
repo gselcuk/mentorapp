@@ -1,10 +1,10 @@
-package com.obss.mentor.repository;
+package com.obss.mentor.user.repository;
 
 import org.springframework.data.couchbase.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.repository.reactive.ReactiveSortingRepository;
 import org.springframework.stereotype.Repository;
-import com.obss.mentor.model.AppUser;
+import com.obss.mentor.user.model.AppUser;
 import reactor.core.publisher.Mono;
 
 /**

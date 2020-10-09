@@ -1,10 +1,10 @@
-package com.obss.mentor.service;
+package com.obss.mentor.user.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
-import com.obss.mentor.model.AppUser;
-import com.obss.mentor.repository.UserRepository;
+import com.obss.mentor.user.model.AppUser;
+import com.obss.mentor.user.repository.UserRepository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
