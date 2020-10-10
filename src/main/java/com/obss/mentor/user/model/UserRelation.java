@@ -1,6 +1,7 @@
 package com.obss.mentor.user.model;
 
 import static org.springframework.data.couchbase.core.mapping.id.GenerationStrategy.UNIQUE;
+import java.util.Date;
 import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.couchbase.core.mapping.Document;
@@ -22,7 +23,10 @@ public class UserRelation {
   @Id
   @GeneratedValue(strategy = UNIQUE)
   private String userRelationId;
-  private List<AppUser> users;
+  private List<RelationHistory> users;
   private RelationPhase relationPhase;
+  private Date startDate;
+  private Date expectedEndDate;
+  private Date endDate;
 
 }

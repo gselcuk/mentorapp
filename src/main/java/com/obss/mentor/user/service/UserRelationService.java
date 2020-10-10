@@ -1,5 +1,6 @@
 package com.obss.mentor.user.service;
 
+import java.util.Date;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -26,8 +27,10 @@ public class UserRelationService {
    */
   public Mono<UserRelation> saveRelation(UserRelation userRelation) {
 
-    if (StringUtils.isEmpty(userRelation.getUserRelationId()))
+    if (StringUtils.isEmpty(userRelation.getUserRelationId())) {
       userRelation.setRelationPhase(RelationPhase.STARTED);
+      userRelation.setStartDate(new Date());
+    }
 
     return userRelationRepository.save(userRelation);
 

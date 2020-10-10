@@ -32,7 +32,7 @@ public class UserController {
    * 
    * @return
    */
-  @GetMapping(value = "/authenticate")
+  @PostMapping(value = "/authenticate")
   public Mono<AppUser> authenticate() {
     return userService.authenticate();
   }
