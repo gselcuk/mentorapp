@@ -12,7 +12,6 @@ public enum UserRole {
   MENTEE_GROUP_LEADER,
   MENTOR_NORMAL,
   MENTEE_NORMAL,
-  ADMIN,
   USER;
 
 }
