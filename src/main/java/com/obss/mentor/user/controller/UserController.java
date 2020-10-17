@@ -49,6 +49,16 @@ public class UserController {
   }
 
   /**
+   * 
+   * @param appUser
+   * @return
+   */
+  @PostMapping(value = "set/role/mentorgroupleader")
+  public Mono<AppUser> setMentorGroupLeader(@RequestBody AppUser appUser) {
+    return userService.setMentorGroupLeader(appUser);
+  }
+
+  /**
    * Get {@code AppUser} for given id.
    * 
    * @param id Given id as path variable.

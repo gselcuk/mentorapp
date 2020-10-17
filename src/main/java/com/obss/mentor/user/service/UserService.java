@@ -1,9 +1,11 @@
 package com.obss.mentor.user.service;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import com.obss.mentor.user.constants.UserRole;
+import com.obss.mentor.user.exception.MentorException;
 import com.obss.mentor.user.model.AppUser;
 import com.obss.mentor.user.repository.UserRepository;
 import reactor.core.publisher.Flux;
@@ -68,6 +70,20 @@ public class UserService {
    */
   public String getUserName() {
     return SecurityContextHolder.getContext().getAuthentication().getName();
+  }
+
+  /**
+   * 
+   * @param appUser
+   * @return
+   */
+  public Mono<AppUser> setMentorGroupLeader(AppUser appUser) {
+    
+    if (StringUtils.isEmpty(appUser.getId()))
+      throw new MentorException("Given user's id is empty!");
+    
+    appUser.setUserRole(UserRole.MENTOR_GROUP_LEADER);
+    return userRepository.save(appUser);
   }
 
 }
