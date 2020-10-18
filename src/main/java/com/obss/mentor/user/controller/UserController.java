@@ -54,8 +54,8 @@ public class UserController {
    * @return
    */
   @PostMapping(value = "set/role/mentorgroupleader")
-  public Mono<AppUser> setMentorGroupLeader(@RequestBody AppUser appUser) {
-    return userService.setMentorGroupLeader(appUser);
+  public void setMentorGroupLeader(@RequestBody AppUser appUser) {
+     userService.setMentorGroupLeader(appUser);
   }
 
   /**

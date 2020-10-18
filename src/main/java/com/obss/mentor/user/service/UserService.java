@@ -21,7 +21,7 @@ import reactor.core.publisher.Mono;
 public class UserService {
 
   @Autowired
-  
+
   private UserRepository userRepository;
 
   /**
@@ -78,12 +78,14 @@ public class UserService {
    * @param appUser
    * @return
    */
-  public Mono<AppUser> setMentorGroupLeader(AppUser appUser) {
-    
+  public void setMentorGroupLeader(AppUser appUser) {
+
     if (StringUtils.isEmpty(appUser.getId()))
-      throw new MentorException("Given user's id is empty!"); 
+      throw new MentorException("Given user's id is empty!");
 
-    return userRepository.saveUserRole(appUser.getUserName(),UserRole.MENTOR_GROUP_LEADER.toString());
+    AppUser user = userRepository.findById(appUser.getId()).block();
+    user.setUserRole(UserRole.MENTEE_GROUP_LEADER);
+    userRepository.save(user).block();
+
   }
-
 }
