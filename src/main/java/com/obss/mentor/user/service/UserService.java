@@ -84,7 +84,7 @@ public class UserService {
       throw new MentorException("Given user's id is empty!");
 
     AppUser user = userRepository.findById(appUser.getId()).block();
-    user.setUserRole(UserRole.MENTEE_GROUP_LEADER);
+    user.setUserRole(UserRole.MENTOR_GROUP_LEADER);
     userRepository.save(user).block();
 
   }

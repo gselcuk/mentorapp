@@ -9,9 +9,8 @@ package com.obss.mentor.user.constants;
 public enum UserRole {
 
   MENTOR_GROUP_LEADER,
-  MENTEE_GROUP_LEADER,
   MENTOR_NORMAL,
-  MENTEE_NORMAL,
+  MENTEE,
   USER;
 
 }
