@@ -49,13 +49,25 @@ public class UserController {
   }
 
   /**
+   * Set user role as {@code UserRole.MENTOR_GROUP_LEADER}
    * 
    * @param appUser
    * @return
    */
   @PostMapping(value = "set/role/mentorgroupleader")
   public void setMentorGroupLeader(@RequestBody AppUser appUser) {
-     userService.setMentorGroupLeader(appUser);
+    userService.setMentorGroupLeader(appUser);
+  }
+  
+  /**
+   * Set user role as {@code UserRole.MENTEE}
+   * 
+   * @param appUser
+   * @return
+   */
+  @PostMapping(value = "set/role/mentee")
+  public void setMentee(@RequestBody AppUser appUser) {
+    userService.setMentee(appUser);
   }
 
   /**

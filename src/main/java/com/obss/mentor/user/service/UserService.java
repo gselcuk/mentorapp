@@ -74,6 +74,7 @@ public class UserService {
   }
 
   /**
+   * Set user role as {@code UserRole.MENTOR_GROUP_LEADER}
    * 
    * @param appUser
    * @return
@@ -85,6 +86,21 @@ public class UserService {
 
     AppUser user = userRepository.findById(appUser.getId()).block();
     user.setUserRole(UserRole.MENTOR_GROUP_LEADER);
+    userRepository.save(user).block();
+
+  }
+
+  /**
+   * If user role is USER then set to MENTEE otherwise do nothing.
+   * 
+   * @param appUser
+   */
+  public void setMentee(AppUser appUser) {
+    AppUser user = userRepository.findById(appUser.getId()).block();
+
+    if (UserRole.isUser(user.getUserRole()))
+      user.setUserRole(UserRole.MENTEE);
+
     userRepository.save(user).block();
 
   }

@@ -12,5 +12,9 @@ public enum UserRole {
   MENTOR_NORMAL,
   MENTEE,
   USER;
+  
+  public static boolean isUser(UserRole role) {
+    return USER.equals(role);
+  }
 
 }
